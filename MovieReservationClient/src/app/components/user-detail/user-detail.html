@@ -1,0 +1,49 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="users-toolbar">
+  <h2>Users</h2>
+
+  <div class="toolbar-actions">
+    <input
+      type="text"
+      placeholder="Search users by name or email..."
+      [(ngModel)]="searchTerm"
+      (input)="searchUsers()"
+    />
+    <button class="btn primary" (click)="backToAdminArea()">Back</button>
+  </div>
+</div>
+
+<!-- Users list -->
+<div class="users-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers; trackBy: trackByUserId">
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.address || '-' }}</td>
+        <td>
+          <button class="btn danger" (click)="deleteUser(user.userId)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="filteredUsers.length === 0">
+        <td colspan="6" class="no-data">No users found.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

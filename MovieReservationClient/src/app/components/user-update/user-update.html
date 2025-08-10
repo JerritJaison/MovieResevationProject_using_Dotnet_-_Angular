@@ -1,0 +1,48 @@
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="edit-container" *ngIf="!isLoading; else loading">
+  <h2>Update Profile</h2>
+
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+    <div class="form-row">
+      <label>Name</label>
+      <input type="text" formControlName="name" />
+    </div>
+
+    <div class="form-row">
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <div class="form-row">
+      <label>Phone</label>
+      <input type="text" formControlName="phone" />
+    </div>
+
+    <div class="form-row">
+      <label>Address</label>
+      <input type="text" formControlName="address" />
+    </div>
+
+    <div class="form-row">
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input [type]="showPassword ? 'text' : 'password'" formControlName="password" />
+        <button type="button" class="toggle-btn" (click)="togglePassword()">
+          {{ showPassword ? 'Hide' : 'Show' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary" [disabled]="updateForm.invalid">Update</button>
+      <button type="button" class="btn" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #loading>
+  <div class="loading-text">Loading user details...</div>
+</ng-template>

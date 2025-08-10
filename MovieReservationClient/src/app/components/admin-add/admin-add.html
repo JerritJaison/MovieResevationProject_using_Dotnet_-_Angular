@@ -1,0 +1,57 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="admin-add-container">
+  <h2>Add New Admin</h2>
+
+  <form [formGroup]="adminForm" (ngSubmit)="onSubmit()">
+    <!-- Username -->
+    <div class="form-group">
+      <label>Username</label>
+      <input type="text" formControlName="username" placeholder="Enter admin username" />
+      <small class="error" *ngIf="adminForm.get('username')?.touched && adminForm.get('username')?.invalid">
+        Username is required.
+      </small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" formControlName="email" placeholder="Enter admin email" />
+      <small class="error" *ngIf="adminForm.get('email')?.touched && adminForm.get('email')?.invalid">
+        Valid email is required.
+      </small>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input-group">
+        <input [type]="showPassword ? 'text' : 'password'"
+               formControlName="password"
+               placeholder="Enter password" />
+        <button type="button" class="toggle-btn" (click)="togglePasswordVisibility()">
+          <i class="bi" [ngClass]="showPassword ? 'bi-eye-slash' : 'bi-eye'"></i>
+        </button>
+      </div>
+      <small class="error" *ngIf="adminForm.get('password')?.touched && adminForm.get('password')?.invalid">
+        Password (min 6 chars) is required.
+      </small>
+    </div>
+
+    <!-- Server Error -->
+    <div *ngIf="serverError" class="alert error">{{ serverError }}</div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn primary" [disabled]="adminForm.invalid || submitting">
+      {{ submitting ? 'Adding...' : 'Add Admin' }}
+    </button>
+
+    <!-- Back Button -->
+    <button type="button" class="btn" (click)="goBack()" style="color: aliceblue;">
+      <i class="bi bi-arrow-left"></i> Back to Admin Page
+    </button>
+  </form>
+</div>

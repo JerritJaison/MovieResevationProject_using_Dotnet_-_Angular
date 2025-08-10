@@ -1,0 +1,36 @@
+<div class="outer-container" style="background-image: url('/assets/images/samp1.jpg');">
+  <div class="ticket-card">
+    <h2 style="text-align: center; margin-top: 30px;">Booking Confirmed</h2>
+    <div class="booking-header">
+        <img src="assets/images/confirm.jpg" alt="Confirmed Seal" class="confirmed-seal">
+    </div>
+    <!-- Movie Info -->
+    <div class="movie-info">
+      <img [src]="posterPath" alt="Movie Poster" class="poster" />
+      <div class="details">
+        <!-- <h3>{{ movieTitle || 'Your Movie Title' }}</h3> -->
+        <p class="meta">Screen: {{ screenName }}</p>
+        <p class="meta">Theatre: {{ theatreName }}</p>
+        <p class="meta">Show Time: {{ showTime }}</p>
+        <p class="meta">Movie: {{ movieName}}</p>
+      </div>
+    </div>
+
+    <!-- QR & Seat Info -->
+    <div class="ticket-body">
+      <div class="qr-placeholder">
+        <img src="/assets/images/qrcode.png" alt="QR Code" />
+      </div>
+      <div class="booking-info">
+        <p><strong>Seat No:</strong> {{ seatNo.join(', ') }}</p>
+        <p class="note">Confirmation sent via email/SMS/WhatsApp</p>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="actions">
+       <button class="cancel-button" (click)="cancelBooking()">Cancel Booking</button>
+       <button class="support-button" (click)="goToBookingConfirmation()">Home Page</button>
+    </div>
+  </div>
+</div>

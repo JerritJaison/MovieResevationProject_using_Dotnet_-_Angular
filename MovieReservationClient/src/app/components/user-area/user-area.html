@@ -1,0 +1,87 @@
+<!-- Background Video -->
+<video autoplay muted loop class="bg-video">
+  <source src="assets/videos/theatrevideo.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<!-- Content Container -->
+<div class="content-overlay">
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo-title">
+      <img src="assets/images/movie.png" alt="Movie Logo" class="logo-img" />
+    </div>
+
+    <!-- Search & Filters -->
+    <div class="nav-center">
+      <input
+        type="text"
+        placeholder="Search by title"
+        class="search-input"
+        [(ngModel)]="searchTerm"
+        (input)="filterMovies()"
+      />
+
+      <select class="filter-select" [(ngModel)]="selectedGenre" (change)="filterMovies()">
+        <option value="">All Genres</option>
+        <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+      </select>
+
+      <select class="filter-select" [(ngModel)]="selectedLanguage" (change)="filterMovies()">
+        <option value="">All Languages</option>
+        <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+      </select>
+    </div>
+
+    <!-- Right Buttons -->
+    <div class="nav-right">
+      <button class="nav-btn" (click)="viewProfile()">View Profile</button>
+      <button class="nav-btn" (click)="viewHistory()">View Ticket</button>
+      <button class="nav-btn logout-btn" (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="css-curve-divider"></div>
+  <!-- Sliding Image Section -->
+<div class="carousel-container">
+  <div class="carousel" [style.transform]="'translateX(-' + currentSlide * 100 + '%)'">
+    <div class="slide" *ngFor="let image of sliderImages">
+      
+      <img [src]="image" alt="Slide" />
+    </div> 
+  </div>
+  <div class="slide-overlay">Coming Soon...</div>
+</div>
+
+  <!-- Movie Grid -->
+  <div class="movie-grid">
+    <div *ngFor="let movie of filteredMovies" class="movie-card">
+      <div class="card-inner">
+        <!-- Front -->
+        <div class="card-front">
+          <img [src]="movie.imageUrl || 'assets/default-poster.jpg'" [alt]="movie.title" />
+        </div>
+        <!-- Back -->
+        <div class="card-back">
+          <h3>{{ movie.title }}</h3>
+          <p><strong>Genre:</strong> {{ movie.genre }}</p>
+          <p><strong>Language:</strong> {{ movie.language }}</p>
+          <p><strong>Duration:</strong> {{ movie.duration }}</p>
+          <button (click)="bookMovie(movie.movieId)">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- View History Modal -->
+<div class="modal-overlay" *ngIf="isHistoryModalOpen">
+  <div class="modal-content">
+    <h2>Enter Booking ID</h2>
+    <input type="text" [(ngModel)]="historyBookingId" placeholder="Booking ID" />
+    <div class="modal-actions">
+      <button (click)="submitBookingId()">Submit</button>
+      <button (click)="closeHistoryModal()">Cancel</button>
+    </div>
+  </div>
+</div>

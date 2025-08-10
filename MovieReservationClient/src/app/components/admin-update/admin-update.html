@@ -1,0 +1,42 @@
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="edit-container" *ngIf="!isLoading; else loading">
+  <h2>Edit Admin</h2>
+
+  <form [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+    <div class="form-row">
+      <label>Username</label>
+      <input type="text" formControlName="username" />
+    </div>
+
+    <div class="form-row">
+  <label>Password</label>
+  <div class="password-wrapper">
+    <input
+      [type]="showPassword ? 'text' : 'password'"
+      formControlName="password"
+    />
+    <button type="button" class="toggle-btn" (click)="togglePassword()">
+      {{ showPassword ? 'Hide' : 'Show' }}
+    </button>
+  </div>
+</div>
+
+
+    <div class="form-row">
+      <label>Email</label>
+      <input type="email" formControlName="email" />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn primary" [disabled]="updateForm.invalid">Update</button>
+      <button type="button" class="btn" (click)="back()">Cancel</button>
+    </div>
+  </form>
+</div>
+
+<ng-template #loading>
+  <div class="loading-text">Loading admin details...</div>
+</ng-template>

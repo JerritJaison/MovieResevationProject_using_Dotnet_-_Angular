@@ -1,0 +1,106 @@
+/* Background Video */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Container styling similar to movie-add */
+.admin-add-container {
+  width: 70%;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Headings */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #ffffff;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Password input with toggle */
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 0 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Buttons */
+button.btn {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button.btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+button.btn.primary:hover {
+  background: #0056b3;
+}
+
+button.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error styling */
+.error {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+}
+
+.alert.error {
+  background-color: rgba(255, 0, 0, 0.2);
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}

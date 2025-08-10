@@ -1,0 +1,124 @@
+/* Background video */
+.bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Toolbar styles */
+.movies-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  color: #fff;
+}
+
+.movies-toolbar h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toolbar-actions input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.btn {
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: 0.3s ease;
+}
+
+.btn.primary {
+  background: #2e3133;
+}
+
+.btn.primary:hover {
+    background: #000000;
+  
+}
+
+
+.btn.danger {
+  background: #dc3545;
+}
+
+.btn.danger:hover {
+  background: #a71d2a;
+}
+
+.btn.small {
+  padding: 5px 12px;
+  font-size: 0.85rem;
+}
+
+/* Movies table */
+.movies-list {
+  margin: 20px auto;
+  width: 80%;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+}
+
+.movies-list table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+  table-layout: fixed;
+}
+
+.movies-list th,
+.movies-list td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movies-list th:not(:last-child),
+.movies-list td:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.movies-list th {
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+}
+
+.movies-list tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.no-data {
+  text-align: center;
+  padding: 10px;
+  color: #ddd;
+}

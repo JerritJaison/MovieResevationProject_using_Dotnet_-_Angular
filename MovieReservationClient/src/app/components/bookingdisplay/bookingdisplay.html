@@ -1,0 +1,64 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="theaters-toolbar">
+  <h2>Booking Details</h2>
+
+  <div class="toolbar-actions">
+    <input
+      type="text"
+      placeholder="Search bookings..."
+      [(ngModel)]="searchTerm"
+      (input)="searchBookings()"
+    />
+    <button class="btn primary" (click)="backToAdminArea()">Back</button>
+  </div>
+</div>
+
+
+<!-- Loading State -->
+<div *ngIf="isLoading" class="loading-text">Loading bookings...</div>
+
+<!-- Booking Table -->
+<div class="theaters-list" *ngIf="!isLoading && filteredBookingDetails.length > 0">
+  <table>
+    <thead>
+      <tr>
+        <th>Booking ID</th>
+        <th>Movie</th>
+        <th>Poster</th>
+        <th>Show Time</th>
+        <th>Screen</th>
+        <th>Theater</th>
+        <th>Seats</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of filteredBookingDetails">
+        <td>{{ booking.bookingId }}</td>
+        <td>{{ booking.movieName }}</td>
+        <td>
+          <img [src]="booking.imageUrl" alt="Poster" width="60" />
+        </td>
+        <td>{{ booking.showTime }}</td>
+        <td>{{ booking.screenName }}</td>
+        <td>{{ booking.theaterName }}</td>
+        <td>
+          <ng-container *ngIf="booking.seatNumbers?.length; else noSeats">
+            {{ booking.seatNumbers.join(', ') }}
+          </ng-container>
+          <ng-template #noSeats>
+            N/A
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- No Data -->
+<div *ngIf="!isLoading && filteredBookingDetails.length === 0" class="no-data">
+  No booking records found.
+</div>

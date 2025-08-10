@@ -1,0 +1,118 @@
+<nav class="dark-navbar">
+  <div class="navbar-content">
+    <span class="brand">Movie Booking</span>
+
+    <ng-container *ngIf="showDetails">
+      <span>Theater: {{ showDetails.theaterName }}</span>
+      <span>Date: {{ showDetails.showDate }}</span>
+      <span>Time: {{ showDetails.showTime }}</span>
+    </ng-container>
+  </div>
+</nav>
+
+
+<div class="page-container">
+<div class="booking-container">
+  <!-- Left Side: Movie Poster -->
+  <div class="movie-details-container">
+  <img [src]="movie?.imageUrl" class="poster" alt="Movie Poster" />
+
+  <div class="details">
+    <h1 class="movie-title">{{ movie?.title?.toUpperCase() }}</h1>
+
+    <div class="info-group">
+      <h3 class="label">Genre</h3>
+      <p class="value">{{ movie?.genre }}</p>
+    </div>
+
+    <div class="info-group">
+      <h3 class="label">Language</h3>
+      <p class="value">{{ movie?.language }}</p>
+    </div>
+
+    <div class="info-group">
+      <h3 class="label">Duration</h3>
+      <p class="value">{{ movie?.duration }}</p>
+    </div>
+    
+  </div>
+  <div class="screen-type-container">
+    <img [src]="'assets/images/' + showDetails.screenType + '.png'" alt="Screen Type" class="screen-image" />
+  </div>
+</div>
+
+  <!-- Right Side: Seat Selection -->
+  <div class="seat-selection-container">
+  <h2>Seat Selection</h2>
+
+  <div class="screen">Screen This Way</div>
+
+  <!-- ✅ NEW: Wrap rows inside a centering div -->
+  <div class="seat-grid">
+    <div
+      *ngFor="let row of seatRows; let rowIndex = index"
+      class="seat-row"
+      [ngClass]="{ 'gap-after-row-4': rowIndex === 3 }"
+    >
+      <div class="row-label">{{ row }}</div>
+      <div class="center-wrapper">
+      <div class="seat-container">
+        <ng-container *ngFor="let seat of seatsByRow[row]; let seatIndex = index">
+          <div
+            (click)="toggleSeat(seat)"
+            [class.booked]="seat.isBooked"
+            [class.selected]="seat.isSelected"
+            class="seat"
+            [ngClass]="{
+              'gap-after-2': seatIndex === 1,
+              'gap-after-8': seatIndex === 7
+            }"
+          >
+            {{ seat.seatNumber }}
+          </div>
+        </ng-container>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary and Legend remain unchanged -->
+</div>
+
+
+    <div class="summary">
+      <p><strong>Selected Seats:</strong> {{ selectedSeatCount }}</p>
+      <p><strong>Total Amount:</strong> ₹{{ totalAmount }}</p>
+      <button (click)="confirmBooking()">Confirm Booking</button>
+    </div>
+
+    <div class="legend">
+      <div><span class="seat available"></span> Available</div>
+      <div><span class="seat selected"></span> Selected</div>
+      <div><span class="seat booked"></span> Booked</div>
+    </div>
+  </div>
+</div>
+<!-- Confirmation Modal -->
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal-content">
+    <h2>Confirm Your Booking</h2>
+    <p>Seats: {{ selectedSeats.join(', ') }}</p>
+    <p>Total Amount: ₹{{ totalAmount }}</p>
+
+    <!-- Terms and Conditions -->
+    <p class="terms-text">
+      By confirming, you agree to our terms and conditions. Tickets once booked cannot be cancelled or refunded.
+    </p>
+
+    <div class="modal-buttons">
+      <button (click)="confirmBookingNow()">Yes, Confirm</button>
+      <button class="cancel" (click)="cancelModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+<div class="loading-overlay" *ngIf="showLoading">
+  <!-- You can swap this with a video tag or a GIF -->
+  <div class="loading-spinner"></div>
+  <p>Processing payment, please wait...</p>
+</div>

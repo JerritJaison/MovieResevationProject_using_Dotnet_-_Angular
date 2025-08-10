@@ -1,0 +1,32 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<!-- Navbar -->
+<div class="navbar">
+  <div class="logo">Admin Panel</div>
+
+  <div class="nav-center">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search Data..."
+      [(ngModel)]="searchTerm"
+    />
+  </div>
+  <div class="nav-right">
+  <button class="nav-btn" (click)="viewAdmin()">View Admin</button>
+  <button class="nav-btn" (click)="addAdmin()">Add Admin</button>
+  <button class="nav-btn logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- Cards Grid -->
+<div class="cards-grid">
+  <div class="card" *ngFor="let card of filteredCards">
+    <h2>{{ card.title }}</h2>
+    <button class="info-btn" (click)="openInfo(card)">Open</button>
+  </div>
+</div>

@@ -1,0 +1,204 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #ca6f6f;
+  
+}
+
+.card {
+  background: rgba(157, 72, 72, 0.001);    /* semi-transparent white */
+  backdrop-filter: blur(20px); /* glass blur */
+  -webkit-backdrop-filter: blur(10px); /* for Safari */
+  border-radius: 20px;
+  padding: 30px;
+  width: 350px;
+  color: rgb(245, 244, 244);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  opacity: 2;
+}
+
+.card h2 {
+    color: #ffffff; /* User Login / Registration / Admin Login title */
+}
+.card label {
+    color: #ffffff; /* Email, Password, Name, Address, Phone labels */
+}
+.form-control::placeholder {
+    color: rgba(17, 17, 17, 0.7); /* Lighter placeholder text, slightly transparent white */
+}
+.card p {
+    color: #ffffff; /* Default paragraph text color to white */
+}
+.card a.text-decoration-none {
+    color: #669bea !important; /* Your signature red color for links */
+    text-decoration: none; /* Keep underline removed by default */
+    font-weight: bold; /* Make the text bold */
+    transition: color 0.2s ease-in-out; /* Smooth transition for hover */
+}
+
+
+.form-group label {
+  color: #ede8e8;
+  font-size: 1.1rem;
+}
+
+.form-group input {
+  background-color: rgba(238, 233, 233, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.form-group input::placeholder {
+  color: #ccc;
+}
+
+
+/* Highlight invalid input fields */
+input.is-invalid {
+  border: 1px solid red;
+  background-color: #ffe6e6;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+
+
+.btn {
+  background: #e8101b;
+  border: none;
+  color: rgb(253, 253, 253);
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 0 12px #832121;
+  transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #ff0033;
+  box-shadow: 0 0 18px #ff0033;
+}
+
+
+.toggle-text {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.toggle-text a {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.admin-login {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.toggle-links {
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.bigger-card {
+  padding: 30px;
+  max-width: 420px;
+  font-size: 1.1rem;
+}
+
+.auth-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-size: 1.1rem;
+}
+
+.form-group input {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.big-btn {
+  padding: 10px 18px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.toggle-text,
+.toggle-links a {
+  font-size: 1rem;
+}
+
+.toggle-links a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.toggle-links a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.toggle-text a {
+  color: #007bff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.toggle-text a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 40px; 
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  color: #007bff;
+  transition: color 0.2s ease-in-out;
+}
+
+.toggle-password:hover {
+  color: #0056b3;
+}
+
+
+.bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 2; /* Adjust this to make it lighter/darker */
+}
+
+
+

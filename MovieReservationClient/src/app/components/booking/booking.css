@@ -1,0 +1,166 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  font-family: 'Inter', sans-serif;
+  position: relative; 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain; 
+  background-attachment: fixed;
+}
+
+.background-card {
+  width: 85%;                   
+  max-width: 1300px;            
+   /* min-width: 1100px; */
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+
+.shows-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* make it wrap for more than 2 rows */
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  /* scrollbar-width: none; */
+  /* overflow-x: auto;
+  overflow-y: hidden;   
+  width: 100%;       
+  max-width: 100vw;     
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+   */
+}
+
+.shows-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.show-card {
+  /* flex: 0 0 300px; */
+  min-width: 280px;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+.card {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/assets/images/theatre.jpg');
+  background-size: contain;
+  background-position:center ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: top;
+  padding: 2rem;
+  background-color: #0f0f0f;
+  /* margin: auto; */
+}
+
+
+.container {
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  max-width: 700px;
+  /* margin: auto; */
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 24px rgba(219, 209, 209, 0.3);
+}
+
+.show-card {
+  border: 1px solid rgba(128, 90, 213, 0.3); 
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  flex: 0 0 300px; 
+  width: 400px;   
+}
+
+.show-card:hover {
+  box-shadow: 0 0 20px rgba(128, 90, 213, 0.6); /* purple glow on hover */
+  transform: scale(1.03); /* slight zoom */
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to right, #b2cf4a, #779d4c);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #5f0fdc, #1d6afc);
+}
+
+
+.container h1,
+.container h2,
+.container h3,
+.container p,
+.container label,
+.container span {
+  color: #ffffff; /* white text */
+  font-weight: 400;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* glow/contrast effect */
+}
+
+
+.theatre-name {
+  color: #2609a9;
+  font-weight: 500;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
+}
+
+/* ::-webkit-scrollbar {
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a78bfa; 
+  border-radius: 10px;
+} */
+
+
+/* .shows-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.shows-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); 
+  border-radius: 10px;
+}
+
+.shows-container::-webkit-scrollbar-thumb {
+  background: #a78bfa;
+  border-radius: 10px;
+} */

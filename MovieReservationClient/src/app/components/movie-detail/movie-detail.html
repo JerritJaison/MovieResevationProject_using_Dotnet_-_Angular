@@ -1,0 +1,50 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="movies-toolbar">
+  <h2>Movies</h2>
+
+  <div class="toolbar-actions">
+    <input
+      type="text"
+      placeholder="Search movies by title, genre, or language..."
+      [(ngModel)]="searchTerm"
+      (input)="searchMovies()"
+    />
+    <button class="btn primary" (click)="addMovie()">Add Movie</button>
+    <button class="btn primary" (click)="backToAdminArea()">Back</button>
+  </div>
+</div>
+
+<!-- Movies list -->
+<div class="movies-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Language</th>
+        <th>Duration</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of filteredMovies; trackBy: trackByMovieId">
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.language }}</td>
+        <td>{{ movie.duration }}</td>
+        <td>
+          <button class="btn danger" (click)="deleteMovie(movie.movieId)">
+            Delete
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="filteredMovies.length === 0">
+        <td colspan="5" class="no-data">No movies found.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

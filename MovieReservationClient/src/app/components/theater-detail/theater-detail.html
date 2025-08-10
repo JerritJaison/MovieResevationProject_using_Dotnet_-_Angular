@@ -1,0 +1,49 @@
+<!-- Background Video -->
+<video autoplay muted loop playsinline class="bg-video">
+  <source src="assets/videos/adminbg.mp4" type="video/mp4" />
+</video>
+
+<div class="theaters-toolbar">
+  <h2>Theaters, Movies & Showtimes</h2>
+
+  <div class="toolbar-actions">
+    <input
+      type="text"
+      placeholder="Search theaters or movies..."
+      [(ngModel)]="searchTerm"
+      (input)="searchTheaters()"
+    />
+    <button class="btn primary" (click)="backToAdminArea()">Back</button>
+  </div>
+</div>
+
+<!-- Theater-Movie-Showtime List -->
+<div class="theaters-list">
+  <table>
+    <thead>
+      <tr>
+        <th>Theater</th>
+        <th>Movie</th>
+        <th>Show Date</th>
+        <th>Start Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let group of filteredTheaterGroups">
+        <tr *ngFor="let s of group.shows; let i = index">
+          <!-- Show theater name only once -->
+          <td *ngIf="i === 0" [attr.rowspan]="group.shows.length">
+            {{ group.theaterName }} ({{ group.city }})
+          </td>
+          <td>{{ s.movieName }}</td>
+          <td>{{ s.showDate | date: 'shortDate' }}</td>
+          <td>{{ s.startTime }}</td>
+        </tr>
+      </ng-container>
+
+      <tr *ngIf="filteredTheaterGroups.length === 0">
+        <td colspan="4" class="no-data">No theaters or movies found.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

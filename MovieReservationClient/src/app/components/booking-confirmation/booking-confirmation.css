@@ -1,0 +1,97 @@
+.outer-container {
+  /* background-image: url('assets/images/samp1.jpg'); */
+  background-size: cover;          /* Ensures full image covers container */
+  background-position: center;     /* Centers the image */
+  background-repeat: no-repeat;    /* Prevents tiling */
+  min-height: 100vh;               /* Full screen height */
+  display: flex;
+  align-items: center;             /* Vertically center */
+  justify-content: flex-start;     /* Aligns content to left */
+}
+
+.ticket-card {
+  background-color: white;
+  margin: 0 0 0 120px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 360px;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Movie info */
+.movie-info {
+  display: flex;
+  padding: 25px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.poster {
+  width: 100px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 16px;
+}
+
+.details h3 {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+}
+
+.details .meta {
+  margin: 4px 0;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Ticket body */
+.ticket-body {
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.qr-placeholder img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.booking-info {
+  flex: 1;
+  margin-left: 16px;
+  font-size: 14px;
+}
+
+.booking-info .note {
+  font-size: 15px;
+  color: gray;
+  margin-top: 10px;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px 16px 16px;
+  border-top: 1px solid #eee;
+}
+
+.cancel-button, .support-button {
+  background: none;
+  border: none;
+  color: #d32f2f;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.booking-header {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.confirmed-seal {
+  width: 150px;
+  margin-top: 20px;
+}
